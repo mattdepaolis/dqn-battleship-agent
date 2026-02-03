@@ -1,0 +1,47 @@
+# Medium training configuration (10000 episodes)
+
+game:
+  board_size: 10
+  max_steps: 100
+
+training:
+  device: "cuda"
+  num_episodes: 10000
+  
+  use_double_dqn: true
+  use_dueling: false
+  use_prioritized_replay: false
+  
+  learning_rate: 0.0001
+  gamma: 0.99
+  
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay: 50000
+  
+  buffer_size: 30000
+  batch_size: 64
+  
+  target_update_freq: 1000
+  
+  log_frequency: 100
+  eval_frequency: 1000
+  checkpoint_frequency: 2000
+
+evaluation:
+  num_episodes: 100
+  seeds: [42, 123, 456, 789, 1001, 1337, 2048, 3141, 5678, 9999,
+          10001, 10002, 10003, 10004, 10005, 10006, 10007, 10008, 10009, 10010,
+          20001, 20002, 20003, 20004, 20005, 20006, 20007, 20008, 20009, 20010,
+          30001, 30002, 30003, 30004, 30005, 30006, 30007, 30008, 30009, 30010,
+          40001, 40002, 40003, 40004, 40005, 40006, 40007, 40008, 40009, 40010,
+          50001, 50002, 50003, 50004, 50005, 50006, 50007, 50008, 50009, 50010,
+          60001, 60002, 60003, 60004, 60005, 60006, 60007, 60008, 60009, 60010,
+          70001, 70002, 70003, 70004, 70005, 70006, 70007, 70008, 70009, 70010,
+          80001, 80002, 80003, 80004, 80005, 80006, 80007, 80008, 80009, 80010,
+          90001, 90002, 90003, 90004, 90005, 90006, 90007, 90008, 90009, 90010]
+
+output:
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs/rl_training_medium"
+  results_dir: "rl_results"

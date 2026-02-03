@@ -1,0 +1,23 @@
+# Battleship Game Configuration
+# 
+# This configuration defines the Battleship game environment for LLM training.
+# The environment provides tools for playing Battleship with ASCII board output.
+
+battleship_resources_server:
+  resources_servers:
+    battleship:
+      entrypoint: app.py
+      domain: game
+      verified: false
+      description: Battleship game environment with ASCII board representation
+
+battleship_simple_agent:
+  responses_api_agents:
+    simple_agent:
+      entrypoint: app.py
+      resources_server:
+        type: resources_servers
+        name: battleship_resources_server
+      model_server:
+        type: responses_api_models
+        name: policy_model

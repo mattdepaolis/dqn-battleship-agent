@@ -1,0 +1,38 @@
+# Quick training configuration for testing (1000 episodes)
+
+game:
+  board_size: 10
+  max_steps: 100
+
+training:
+  device: "cuda"
+  num_episodes: 1000
+  
+  use_double_dqn: true
+  use_dueling: false
+  use_prioritized_replay: false
+  
+  learning_rate: 0.0001
+  gamma: 0.99
+  
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay: 10000
+  
+  buffer_size: 10000
+  batch_size: 64
+  
+  target_update_freq: 500
+  
+  log_frequency: 50
+  eval_frequency: 200
+  checkpoint_frequency: 500
+
+evaluation:
+  num_episodes: 10
+  seeds: [42, 123, 456, 789, 1001, 1337, 2048, 3141, 5678, 9999]
+
+output:
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs/rl_training_quick"
+  results_dir: "rl_results"
